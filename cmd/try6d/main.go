@@ -1,7 +1,6 @@
 package main
 
 import (
-	"fmt"
 	"os"
 	"os/signal"
 	"runtime"
@@ -90,7 +89,7 @@ func main() {
 	server.Use(mw.StripTrailingSlash())
 	server.Use(mw.Logger())
 	server.Get("/time", api.Time)
-	server.Get("/info", api.Info(fmt.Sprintf("Try5 API Server Version: %v Revision: %v Build: %v", Version, Revision, BuildDate)))
+	server.Get("/info", api.Info(Version, Revision, BuildDate))
 	// serve the V1 REST API from /api/v1
 	apisrv := server.Group("/api/v1")
 	// Gzip

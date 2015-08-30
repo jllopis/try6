@@ -26,10 +26,14 @@ func Time(w http.ResponseWriter, r *http.Request) {
 }
 
 // Info provide information of the server API and status
-func Info(i string) echo.HandlerFunc {
+func Info(version, revision, build string) echo.HandlerFunc {
 	return func(ctx *echo.Context) error {
 		info := map[string]interface{}{
-			"API Server":      i,
+			"API Server": map[string]string{
+				"Version":  version,
+				"Revision": revision,
+				"Build":    build,
+			},
 			"GetConf Version": getconf.Version(),
 			"Go Version":      runtime.Version(),
 			"Server Time":     time.Now().UTC().UnixNano(),
