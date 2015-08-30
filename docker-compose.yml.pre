@@ -15,7 +15,7 @@ db:
 
 try6:
         #build: .
-        image: datflow/try6d:v0.0.1
+        image: datflow/try6d:{{TRY6D_VERSION}}
         volumes:
                 - ${PWD}/cmd/try6d/certs:/etc/try6/certs
         environment:
