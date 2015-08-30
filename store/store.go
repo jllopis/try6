@@ -11,7 +11,6 @@ import (
 	// postgresql driver for database/sql
 	_ "github.com/lib/pq"
 
-	"github.com/jllopis/try6"
 	"github.com/jllopis/try6/log"
 )
 
@@ -24,12 +23,8 @@ type Storer interface {
 	Tenanter
 	Accounter
 	Keyer
-}
-
-// Tenanter defines the methods needed to manage Tenants
-type Tenanter interface {
-	CreateTenant(data *try6.CreateTenantData) error
-	SaveTenant(tenant *try6.Tenant) error
+	Directer
+	Scoper
 }
 
 /*

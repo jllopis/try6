@@ -7,6 +7,11 @@ import (
 	"github.com/jllopis/try6/log"
 )
 
+// Directer defines the methods needed to manage Tenants
+type Directer interface {
+	SaveDirectory(tenant *try6.Tenant) error
+}
+
 // SaveDirectory persist the directory data to the database
 func (d *DefaultStore) SaveDirectory(t *try6.Directory) error {
 	log.LogD("Saving Directory", "pkg", "store", "func", "SaveDirectory(*try6.Directory)", "data", t)
