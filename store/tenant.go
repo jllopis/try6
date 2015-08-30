@@ -4,9 +4,15 @@ import (
 	"time"
 
 	"github.com/jllopis/try6"
+	"github.com/jllopis/try6/log"
 	"github.com/jllopis/try6/tryerr"
-	"github.com/jllopis/zbs/log"
 )
+
+// Tenanter defines the methods needed to manage Tenants
+type Tenanter interface {
+	CreateTenant(data *try6.CreateTenantData) error
+	SaveTenant(tenant *try6.Tenant) error
+}
 
 // SaveTenant persist the tenant data to the database
 func (d *DefaultStore) SaveTenant(t *try6.Tenant) error {
