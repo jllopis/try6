@@ -9,7 +9,7 @@ import (
 
 // Directer defines the methods needed to manage Tenants
 type Directer interface {
-	SaveDirectory(tenant *try6.Tenant) error
+	SaveDirectory(d *try6.Directory) error
 }
 
 // SaveDirectory persist the directory data to the database
