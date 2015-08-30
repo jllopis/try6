@@ -1,0 +1,120 @@
+{
+	"ImportPath": "github.com/jllopis/try6",
+	"GoVersion": "go1.5",
+	"Packages": [
+		"./..."
+	],
+	"Deps": [
+		{
+			"ImportPath": "bitbucket.org/jllopis/getconf",
+			"Comment": "0.1.2-42-gb9e9254",
+			"Rev": "b9e9254d6a738b93faf1fea76eff3173e459485b"
+		},
+		{
+			"ImportPath": "github.com/Sirupsen/logrus",
+			"Comment": "v0.8.3-3-g07d998d",
+			"Rev": "07d998d174c4e2dc90e2f1989a20724220bca1ff"
+		},
+		{
+			"ImportPath": "github.com/bradfitz/http2",
+			"Rev": "f8202bc903bda493ebba4aa54922d78430c2c42f"
+		},
+		{
+			"ImportPath": "github.com/cenkalti/backoff",
+			"Rev": "6c45d6bc1e78d94431dff8fc28a99f20bafa355a"
+		},
+		{
+			"ImportPath": "github.com/coreos/etcd/etcdserver/etcdhttp/httptypes",
+			"Comment": "v2.0.4-220-g862c16e",
+			"Rev": "862c16e8215a79bbd27275281f2181e20ae2b08b"
+		},
+		{
+			"ImportPath": "github.com/coreos/etcd/pkg/types",
+			"Comment": "v2.0.4-220-g862c16e",
+			"Rev": "862c16e8215a79bbd27275281f2181e20ae2b08b"
+		},
+		{
+			"ImportPath": "github.com/coreos/go-etcd/etcd",
+			"Comment": "v0.4.6-6-g4734e7a",
+			"Rev": "4734e7aca379f0d7fcdf04fbb2101696a4b45ce8"
+		},
+		{
+			"ImportPath": "github.com/garyburd/redigo/internal",
+			"Rev": "1a6effc8b0a7bb1b21c683ea5645c4e0fb52f302"
+		},
+		{
+			"ImportPath": "github.com/garyburd/redigo/redis",
+			"Rev": "1a6effc8b0a7bb1b21c683ea5645c4e0fb52f302"
+		},
+		{
+			"ImportPath": "github.com/jmoiron/sqlx",
+			"Comment": "sqlx-v1.1-42-g344b1e9",
+			"Rev": "344b1e96d6e410a093b7bce40287731a49e253f6"
+		},
+		{
+			"ImportPath": "github.com/labstack/echo",
+			"Comment": "v1.1.0-16-g832fd11",
+			"Rev": "832fd111d499a00e4ade3cda6cfc039469f91ff6"
+		},
+		{
+			"ImportPath": "github.com/labstack/gommon/color",
+			"Comment": "v0.0.3-7-g3c61341",
+			"Rev": "3c613419957bbd5afea3fc87bbc0f9f2dca19196"
+		},
+		{
+			"ImportPath": "github.com/lib/pq",
+			"Comment": "go1.0-cutoff-59-gb269bd0",
+			"Rev": "b269bd035a727d6c1081f76e7a239a1b00674c40"
+		},
+		{
+			"ImportPath": "github.com/mattn/go-colorable",
+			"Rev": "40e4aedc8fabf8c23e040057540867186712faa5"
+		},
+		{
+			"ImportPath": "github.com/mattn/go-isatty",
+			"Rev": "ae0b1f8f8004be68d791a576e3d8e7648ab41449"
+		},
+		{
+			"ImportPath": "github.com/mgutz/ansi",
+			"Rev": "452f5f5396543168418a299cd963697ac742b56e"
+		},
+		{
+			"ImportPath": "github.com/mgutz/logxi/v1",
+			"Rev": "14b2337527a960f31ed8b9481f3e5665246708cd"
+		},
+		{
+			"ImportPath": "github.com/mgutz/str",
+			"Comment": "1.1.0-4-g968bf66",
+			"Rev": "968bf66e3da857419e4f6e71b2d5c9ae95682dc4"
+		},
+		{
+			"ImportPath": "github.com/pmylund/go-cache",
+			"Rev": "93d85800f2fa6bd0a739e7bd612bfa3bc008b72d"
+		},
+		{
+			"ImportPath": "github.com/rs/cors",
+			"Rev": "f49dcfbc084f3bd044c50572731027c77043de7f"
+		},
+		{
+			"ImportPath": "golang.org/x/crypto/bcrypt",
+			"Rev": "b7d6bf2c61544745a02f83dec90393985fc3a065"
+		},
+		{
+			"ImportPath": "golang.org/x/crypto/blowfish",
+			"Rev": "b7d6bf2c61544745a02f83dec90393985fc3a065"
+		},
+		{
+			"ImportPath": "golang.org/x/net/context",
+			"Rev": "51854aba4682903632d14998d47781fe34e62a02"
+		},
+		{
+			"ImportPath": "golang.org/x/net/websocket",
+			"Rev": "51854aba4682903632d14998d47781fe34e62a02"
+		},
+		{
+			"ImportPath": "gopkg.in/mgutz/dat.v1",
+			"Comment": "v1.1.5",
+			"Rev": "82b49af27c23b73770bab67203970a1d12289fc4"
+		}
+	]
+}

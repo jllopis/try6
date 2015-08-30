@@ -1,0 +1,7 @@
+# Ignore vim backup files
+*~
+*.swp
+
+# Vagrant
+.vagrant
+

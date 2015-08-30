@@ -1,0 +1,41 @@
+# vi: set ft=ruby :
+ROOT = File.dirname(File.expand_path(__FILE__))
+VAGRANTFILE_API_VERSION = "2"
+OPEN_PORTS = [
+	{:guest => 4001, :host => 4001},
+	{:guest => 7001, :host => 7001}
+]
+
+Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
+  config.vm.box = "vagrant_ubuntu_12.04.3_amd64_virtualbox"
+  config.vm.box_url = "http://nitron-vagrant.s3-website-us-east-1.amazonaws.com/vagrant_ubuntu_12.04.3_amd64_virtualbox.box"
+  #config.vm.box = "precise64"
+  #config.vm.box_url = "http://files.vagrantup.com/precise64.box"
+  #config.vm.box = "phusion-open-ubuntu-12.04-amd64"
+  #config.vm.box_url = "https://oss-binaries.phusionpassenger.com/vagrant/boxes/ubuntu-12.04.3-amd64-vbox.box"
+  config.ssh.forward_agent = true
+  if File.directory?("#{ROOT}")
+    config.vm.synced_folder File.expand_path("#{ROOT}"), "/vagrant"
+  end
+
+  # Forward ports
+  OPEN_PORTS.each do |ports|
+	config.vm.network "forwarded_port", guest: ports[:guest], host: ports[:host]
+  end
+
+  if Dir.glob("#{File.dirname(__FILE__)}/.vagrant/machines/default/*/id").empty?
+    # Add lxc-docker package
+    pkg_cmd = "wget -q -O - https://get.docker.io/gpg | apt-key add -;" \
+      "echo deb http://get.docker.io/ubuntu docker main > /etc/apt/sources.list.d/docker.list;" \
+      "apt-get update -qq; apt-get install -q -y --force-yes lxc-docker; "
+    # Add vagrant user to the docker group
+    pkg_cmd << "usermod -a -G docker vagrant; "
+    # Pull jllopis/etcd:latest
+    pkg_cmd << "docker pull jllopis/etcd; "
+    # Create data directory
+    pkg_cmd << "mkdir -p /opt/etcd-server/data; "
+    # Run jllopis/etcd
+    pkg_cmd << "docker run -d -p 4001:4001 -p 7001:7001 -v /opt/etcd-server/data:/opt/etcd-server/data --name etcd --hostname etcd jllopis/etcd; "
+    config.vm.provision :shell, :inline => pkg_cmd
+  end
+end

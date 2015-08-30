@@ -1,0 +1,35 @@
+db:
+        image: postgres:9.4.4
+        volumes:
+                - ${PWD}/resources/schema.pgsql:/tmp/schema.sql
+                - ${PWD}/resources/init_db.sh:/docker-entrypoint-initdb.d/init_db.sh
+        environment:
+                - POSTGRES_PASSWORD=00000000
+                - DB_USER=try6adm
+                - DB_PASSWORD=00000000
+                - DB_NAME=try6db
+                - DB_ENCODING=UTF-8
+                - DB_PG_SCHEMA_FILE=/tmp/schema.sql
+        ports:
+        - "5432"
+
+try6:
+        build: .
+        volumes:
+                - ${PWD}/cmd/try6d/certs:/etc/try6/certs
+        environment:
+                - TRY6_SSLCERT=/etc/try6/certs/cert.pem
+                - TRY6_SSLKEY=/etc/try6/certs/key.pem
+                - TRY6_PORT=9000
+                - TRY6_VERBOSE=true
+                - TRY6_STORE_HOST=db.acb.info
+                - TRY6_STORE_PORT=5432
+                - TRY6_STORE_NAME=try6db
+                - TRY6_STORE_USER=try6adm
+                - TRY6_STORE_PASS=00000000
+                #- TRY6_MQTT_URI=tcp://mqtt.acb.info:1883
+                #- TRY6_MQTT_TOPIC=/ans/inscripciones/minicopa
+        ports:
+                - "9000:9000"
+        links:
+                - db:db.acb.info
