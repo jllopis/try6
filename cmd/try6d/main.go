@@ -116,8 +116,12 @@ func setupAPIRoutes(apisrv *echo.Group, storeManager store.Storer) {
 	// Tenants
 	log.LogD("seting up route", "path", "/tenants", "method", "POST")
 	apisrv.Post("/tenants", api.CreateTenant(storeManager))
+	log.LogD("seting up route", "path", "/tenants/:id/scopes", "method", "GET")
+	apisrv.Get("/tenants/:id/scopes", api.GetScopesByTenantID(storeManager))
 	// Directory
-
+	//apisrv.Post("/directories", api.CreateDirectory(storeManager))
+	// scopes
+	//apisrv.Post("/scopes", api.CreateScope(storeManager))
 	// accounts
 	//	apisrv.Get("/accounts", api.GetAllAccounts(mainManager))
 	//	apisrv.Get("/accounts/:uid", api.GetAccountByID(mainManager))
